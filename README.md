@@ -870,27 +870,27 @@ Screenshots are intentionally organized by product experience rather than presen
 
 **01 — Support Interface**
 
-![Support Interface](screenshots/1.png)
+![Support Interface](assets/1.png)
 
 **02 — Student Workflow**
 
-![Student Workflow](screenshots/2.png)
+![Student Workflow](assets/2.png)
 
 **03 — Service Request Experience**
 
-![Service Request Experience](screenshots/3.png)
+![Service Request Experience](assets/3.png)
 
 **04 — Request Processing Interface**
 
-![Request Processing Interface](screenshots/token.png)
+![Request Processing Interface](assets/token.png)
 
 **05 — Warning On Request Processing Interface On Speacial Cases**
 
-![Request Processing Interface](screenshots/5.png)
+![Request Processing Interface](assets/5.png)
 
 **06 — Warning On Request Processing Interface On Speacial Cases Academic**
 
-![Request Processing Interface](screenshots/8.png)
+![Request Processing Interface](assets/8.png)
 
 ---
 
@@ -898,47 +898,47 @@ Screenshots are intentionally organized by product experience rather than presen
 
 **05 — Administrative Operations**
 
-![Administrative Operations 05](screenshots/10.png)
+![Administrative Operations 05](assets/10.png)
 
 **06**
 
-![Administrative Operations 06](screenshots/11.png)
+![Administrative Operations 06](assets/11.png)
 
 **07**
 
-![Administrative Operations 07](screenshots/12.png)
+![Administrative Operations 07](assets/12.png)
 
 **08**
 
-![Administrative Operations 08](screenshots/13.png)
+![Administrative Operations 08](assets/13.png)
 
 **09**
 
-![Administrative Operations 09](screenshots/14.png)
+![Administrative Operations 09](assets/14.png)
 
 **10**
 
-![Administrative Operations 10](screenshots/15.png)
+![Administrative Operations 10](assets/15.png)
 
 **11**
 
-![Administrative Operations 11](screenshots/16.png)
+![Administrative Operations 11](assets/16.png)
 
 **12**
 
-![Administrative Operations 12](screenshots/17.png)
+![Administrative Operations 12](assets/17.png)
 
 **13**
 
-![Administrative Operations 13](screenshots/18.png)
+![Administrative Operations 13](assets/18.png)
 
 **14**
 
-![Administrative Operations 14](screenshots/19.png)
+![Administrative Operations 14](assets/19.png)
 
 **15**
 
-![Administrative Operations 15](screenshots/20.png)
+![Administrative Operations 15](assets/20.png)
 
 ---
 
@@ -946,27 +946,27 @@ Screenshots are intentionally organized by product experience rather than presen
 
 **16**
 
-![Ticket Processing 16](screenshots/16.png)
+![Ticket Processing 16](assets/16.png)
 
 **17**
 
-![Ticket Processing 17](screenshots/17.png)
+![Ticket Processing 17](assets/17.png)
 
 **18**
 
-![Ticket Processing 18](screenshots/18.png)
+![Ticket Processing 18](assets/18.png)
 
 **19**
 
-![Ticket Processing 19](screenshots/19.png)
+![Ticket Processing 19](assets/19.png)
 
 **20**
 
-![Ticket Processing 20](screenshots/20.png)
+![Ticket Processing 20](assets/20.png)
 
 **21**
 
-![Ticket Processing 21](screenshots/21.png)
+![Ticket Processing 21](assets/21.png)
 
 ---
 
@@ -974,35 +974,35 @@ Screenshots are intentionally organized by product experience rather than presen
 
 **22**
 
-![Specialized Operations 22](screenshots/18.png)
+![Specialized Operations 22](assets/18.png)
 
 **23**
 
-![Specialized Operations 23](screenshots/19.png)
+![Specialized Operations 23](assets/19.png)
 
 **24**
 
-![Specialized Operations 24](screenshots/20.png)
+![Specialized Operations 24](assets/20.png)
 
 **25**
 
-![Specialized Operations 25](screenshots/25.png)
+![Specialized Operations 25](assets/25.png)
 
 **26**
 
-![Specialized Operations 26](screenshots/26.png)
+![Specialized Operations 26](assets/26.png)
 
 **27**
 
-![Specialized Operations 27](screenshots/27.png)
+![Specialized Operations 27](assets/27.png)
 
 **28**
 
-![Specialized Operations 28](screenshots/28.png)
+![Specialized Operations 28](assets/28.png)
 
 **29**
 
-![Specialized Operations 29](screenshots/29.png)
+![Specialized Operations 29](assets/29.png)
 
 ---
 
@@ -1012,15 +1012,15 @@ The platform's automated communication layer generates branded HTML emails throu
 
 ### Submission Receipt
 
-![Submission Receipt Email](screenshots/receive.png)
+![Submission Receipt Email](assets/receive.png)
 
 ### Resolution Notification
 
-![Resolution Notification Email](screenshots/resolve.png)
+![Resolution Notification Email](assets/resolve.png)
 
 ### Decline Notification
 
-![Decline Notification Email](screenshots/decline.png)
+![Decline Notification Email](assets/decline.png)
 
 ---
 

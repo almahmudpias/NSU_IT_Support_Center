@@ -882,7 +882,15 @@ Screenshots are intentionally organized by product experience rather than presen
 
 **04 — Request Processing Interface**
 
-![Request Processing Interface](screenshots/4.png)
+![Request Processing Interface](screenshots/token.png)
+
+**05 — Warning On Request Processing Interface On Speacial Cases**
+
+![Request Processing Interface](screenshots/5.png)
+
+**06 — Warning On Request Processing Interface On Speacial Cases Academic**
+
+![Request Processing Interface](screenshots/8.png)
 
 ---
 
@@ -890,47 +898,47 @@ Screenshots are intentionally organized by product experience rather than presen
 
 **05 — Administrative Operations**
 
-![Administrative Operations 05](screenshots/5.png)
+![Administrative Operations 05](screenshots/10.png)
 
 **06**
 
-![Administrative Operations 06](screenshots/6.png)
+![Administrative Operations 06](screenshots/11.png)
 
 **07**
 
-![Administrative Operations 07](screenshots/7.png)
+![Administrative Operations 07](screenshots/12.png)
 
 **08**
 
-![Administrative Operations 08](screenshots/8.png)
+![Administrative Operations 08](screenshots/13.png)
 
 **09**
 
-![Administrative Operations 09](screenshots/9.png)
+![Administrative Operations 09](screenshots/14.png)
 
 **10**
 
-![Administrative Operations 10](screenshots/10.png)
+![Administrative Operations 10](screenshots/15.png)
 
 **11**
 
-![Administrative Operations 11](screenshots/11.png)
+![Administrative Operations 11](screenshots/16.png)
 
 **12**
 
-![Administrative Operations 12](screenshots/12.png)
+![Administrative Operations 12](screenshots/17.png)
 
 **13**
 
-![Administrative Operations 13](screenshots/13.png)
+![Administrative Operations 13](screenshots/18.png)
 
 **14**
 
-![Administrative Operations 14](screenshots/14.png)
+![Administrative Operations 14](screenshots/19.png)
 
 **15**
 
-![Administrative Operations 15](screenshots/15.png)
+![Administrative Operations 15](screenshots/20.png)
 
 ---
 
@@ -966,15 +974,15 @@ Screenshots are intentionally organized by product experience rather than presen
 
 **22**
 
-![Specialized Operations 22](screenshots/22.png)
+![Specialized Operations 22](screenshots/18.png)
 
 **23**
 
-![Specialized Operations 23](screenshots/23.png)
+![Specialized Operations 23](screenshots/19.png)
 
 **24**
 
-![Specialized Operations 24](screenshots/24.png)
+![Specialized Operations 24](screenshots/20.png)
 
 **25**
 

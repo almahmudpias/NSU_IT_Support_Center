@@ -4,6 +4,8 @@
 
 ### Enterprise IT Service Management, Ticket Orchestration & Resolution Platform
 
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933?logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-API%20Layer-000000?logo=express&logoColor=white)
 ![Supabase PostgreSQL](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase&logoColor=white)
@@ -132,7 +134,7 @@ flowchart TD
         U3[Super Admins]
     end
 
-    subgraph Presentation["Presentation Layer — HTML5 + JavaScript + Tailwind CSS"]
+    subgraph Presentation["Presentation Layer — React 19 + React Router + Tailwind CSS (Vite)"]
         P1[Student Desk]
         P2[Agent Portal]
         P3[Admin Portal]
@@ -551,8 +553,10 @@ This provides continuity between digital ticket processing and operational situa
 
 | Layer | Technology | Engineering Role |
 |-------|------------|-----------------|
-| **Presentation** | `HTML5` | Semantic application structure |
-| **Client Logic** | `JavaScript ES6+` | Interactive application behavior |
+| **UI Library** | `React 19` | Component-based interface engineering |
+| **Rendering** | `React DOM 19` | DOM reconciliation and rendering |
+| **Client-Side Routing** | `React Router DOM 7` | Application navigation and route management |
+| **Build Tooling** | `Vite 6` (`@vitejs/plugin-react`) | Development server and production bundling |
 | **UI Engineering** | `Tailwind CSS` | Responsive design system and utility-based styling |
 | **Backend Runtime** | `Node.js` | Server-side application execution |
 | **API Layer** | `Express.js` | HTTP API and application routing |
@@ -570,7 +574,7 @@ The platform can be conceptually represented through five cooperating layers.
 
 ```mermaid
 flowchart TD
-    P["Presentation Layer<br/>HTML5 · JavaScript ES6+ · Tailwind CSS"] --> A["Application Layer<br/>Node.js · Express.js · Business Workflows · Validation"]
+    P["Presentation Layer<br/>React 19 · React Router DOM 7 · Tailwind CSS · Vite 6"] --> A["Application Layer<br/>Node.js · Express.js · Business Workflows · Validation"]
     A --> D["Data Layer<br/>Supabase PostgreSQL"]
     D --> R["Real-Time Event Layer<br/>Supabase Realtime / WebSockets"]
     R --> C["Communication Layer<br/>Nodemailer"]
@@ -603,6 +607,10 @@ Administrative credentials require one-way password protection rather than stori
 ### Why Express.js?
 
 Express provides the API and routing layer connecting the presentation layer with backend business workflows, authentication, database operations, and event-driven processing.
+
+### Why Migrate to React 19 + Vite?
+
+The frontend was initially implemented in HTML5 and JavaScript ES6+ before being migrated to a component-based architecture using React 19, with React Router DOM 7 introduced to support client-side routing across the Student, Agent, and Admin portals. Vite 6 was adopted as the build tool for development and production bundling. Tailwind CSS was retained across the migration as the styling layer.
 
 ---
 
@@ -849,9 +857,11 @@ The project demonstrates the ability to move beyond isolated feature implementat
 - Cache-control considerations
 
 ### Frontend Engineering
-- HTML5
-- JavaScript ES6+
+- React 19
+- React Router DOM 7
+- Vite 6
 - Tailwind CSS
+- Component-based architecture
 - Responsive interfaces
 - Data-intensive UI
 - Command palette interaction
@@ -945,7 +955,7 @@ Instead, this repository documents the engineering work through:
 
 | Category | Technologies |
 |---|---|
-| **Frontend** | `HTML5`, `JavaScript ES6+`, `Tailwind CSS` |
+| **Frontend** | `React 19`, `React DOM 19`, `React Router DOM 7`, `Vite 6`, `Tailwind CSS` |
 | **Backend** | `Node.js`, `Express.js` |
 | **Data** | `Supabase PostgreSQL`, `Supabase Realtime` |
 | **Security** | `JWT`, `bcryptjs` |

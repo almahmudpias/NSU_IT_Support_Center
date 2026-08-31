@@ -665,149 +665,88 @@ Express provides the API and routing layer connecting the presentation layer wit
 
 The following screenshots provide a visual representation of the deployed product, organized by product experience rather than presented as an unstructured image collection.
 
-<details>
-<summary><strong>Student Support Experience</strong></summary>
-
-**01 — Support Interface**
-
-![Support Interface](assets/1.png)
-
-**02 — Student Workflow**
-
-![Student Workflow](assets/2.png)
-
-**03 — Service Request Experience**
-
-![Service Request Experience](assets/3.png)
-
-**04 — Request Processing Interface**
-
-![Request Processing Interface](assets/token.png)
-
-**05 — Warning On Request Processing Interface On Special Cases**
-
-![Request Processing Interface](assets/5.png)
-
-**06 — Warning On Request Processing Interface On Special Cases Academic**
-
-![Request Processing Interface](assets/8.png)
-
-</details>
-
-<details>
-<summary><strong>Administrative Operations</strong></summary>
-
-**05 — Administrative Operations**
-
-![Administrative Operations 05](assets/10.png)
-
-**06**
-
-![Administrative Operations 06](assets/11.png)
-
-**07**
-
-![Administrative Operations 07](assets/12.png)
-
-**08**
-
-![Administrative Operations 08](assets/13.png)
-
-**09**
-
-![Administrative Operations 09](assets/14.png)
-
-**10**
-
-![Administrative Operations 10](assets/15.png)
-
-**11**
-
-![Administrative Operations 11](assets/16.png)
-
-**12**
-
-![Administrative Operations 12](assets/17.png)
-
-**13**
-
-![Administrative Operations 13](assets/18.png)
-
-**14**
-
-![Administrative Operations 14](assets/19.png)
-
-**15**
-
-![Administrative Operations 15](assets/20.png)
-
-</details>
-
-<details>
-<summary><strong>Ticket Processing & Workflow</strong></summary>
-
-**16**
-
-![Ticket Processing 16](assets/16.png)
-
-**17**
-
-![Ticket Processing 17](assets/17.png)
-
-**18**
-
-![Ticket Processing 18](assets/18.png)
-
-**19**
-
-![Ticket Processing 19](assets/19.png)
-
-**20**
-
-![Ticket Processing 20](assets/20.png)
-
-**21**
-
-![Ticket Processing 21](assets/21.png)
-
-</details>
-
-<details>
-<summary><strong>Administration & Specialized Operations</strong></summary>
-
-**22**
-
-![Specialized Operations 22](assets/18.png)
-
-**23**
-
-![Specialized Operations 23](assets/19.png)
-
-**24**
-
-![Specialized Operations 24](assets/20.png)
-
-**25**
-
-![Specialized Operations 25](assets/25.png)
-
-**26**
-
-![Specialized Operations 26](assets/26.png)
-
-**27**
-
-![Specialized Operations 27](assets/27.png)
-
-**28**
-
-![Specialized Operations 28](assets/28.png)
-
-**29**
-
-![Specialized Operations 29](assets/29.png)
-
-</details>
+### Student Support Experience
+
+<div align="center">
+<table>
+<tr>
+<td width="33%" align="center"><img src="assets/1.png" width="100%"/><br/><sub><strong>01 — Support Interface</strong></sub></td>
+<td width="33%" align="center"><img src="assets/2.png" width="100%"/><br/><sub><strong>02 — Student Workflow</strong></sub></td>
+<td width="33%" align="center"><img src="assets/3.png" width="100%"/><br/><sub><strong>03 — Service Request Experience</strong></sub></td>
+</tr>
+<tr>
+<td width="33%" align="center"><img src="assets/token.png" width="100%"/><br/><sub><strong>04 — Request Processing Interface</strong></sub></td>
+<td width="33%" align="center"><img src="assets/5.png" width="100%"/><br/><sub><strong>05 — Warning on Special Cases</strong></sub></td>
+<td width="33%" align="center"><img src="assets/8.png" width="100%"/><br/><sub><strong>06 — Warning on Academic Special Cases</strong></sub></td>
+</tr>
+</table>
+</div>
+
+### Administrative Operations
+
+<div align="center">
+<table>
+<tr>
+<td width="33%" align="center"><img src="assets/10.png" width="100%"/><br/><sub><strong>05</strong></sub></td>
+<td width="33%" align="center"><img src="assets/11.png" width="100%"/><br/><sub><strong>06</strong></sub></td>
+<td width="33%" align="center"><img src="assets/12.png" width="100%"/><br/><sub><strong>07</strong></sub></td>
+</tr>
+<tr>
+<td width="33%" align="center"><img src="assets/13.png" width="100%"/><br/><sub><strong>08</strong></sub></td>
+<td width="33%" align="center"><img src="assets/14.png" width="100%"/><br/><sub><strong>09</strong></sub></td>
+<td width="33%" align="center"><img src="assets/15.png" width="100%"/><br/><sub><strong>10</strong></sub></td>
+</tr>
+<tr>
+<td width="33%" align="center"><img src="assets/16.png" width="100%"/><br/><sub><strong>11</strong></sub></td>
+<td width="33%" align="center"><img src="assets/17.png" width="100%"/><br/><sub><strong>12</strong></sub></td>
+<td width="33%" align="center"><img src="assets/18.png" width="100%"/><br/><sub><strong>13</strong></sub></td>
+</tr>
+<tr>
+<td width="33%" align="center"><img src="assets/19.png" width="100%"/><br/><sub><strong>14</strong></sub></td>
+<td width="33%" align="center"><img src="assets/20.png" width="100%"/><br/><sub><strong>15</strong></sub></td>
+<td width="33%"></td>
+</tr>
+</table>
+</div>
+
+### Ticket Processing & Workflow
+
+<div align="center">
+<table>
+<tr>
+<td width="33%" align="center"><img src="assets/16.png" width="100%"/><br/><sub><strong>16</strong></sub></td>
+<td width="33%" align="center"><img src="assets/17.png" width="100%"/><br/><sub><strong>17</strong></sub></td>
+<td width="33%" align="center"><img src="assets/18.png" width="100%"/><br/><sub><strong>18</strong></sub></td>
+</tr>
+<tr>
+<td width="33%" align="center"><img src="assets/19.png" width="100%"/><br/><sub><strong>19</strong></sub></td>
+<td width="33%" align="center"><img src="assets/20.png" width="100%"/><br/><sub><strong>20</strong></sub></td>
+<td width="33%" align="center"><img src="assets/21.png" width="100%"/><br/><sub><strong>21</strong></sub></td>
+</tr>
+</table>
+</div>
+
+### Administration & Specialized Operations
+
+<div align="center">
+<table>
+<tr>
+<td width="33%" align="center"><img src="assets/18.png" width="100%"/><br/><sub><strong>22</strong></sub></td>
+<td width="33%" align="center"><img src="assets/19.png" width="100%"/><br/><sub><strong>23</strong></sub></td>
+<td width="33%" align="center"><img src="assets/20.png" width="100%"/><br/><sub><strong>24</strong></sub></td>
+</tr>
+<tr>
+<td width="33%" align="center"><img src="assets/25.png" width="100%"/><br/><sub><strong>25</strong></sub></td>
+<td width="33%" align="center"><img src="assets/26.png" width="100%"/><br/><sub><strong>26</strong></sub></td>
+<td width="33%" align="center"><img src="assets/27.png" width="100%"/><br/><sub><strong>27</strong></sub></td>
+</tr>
+<tr>
+<td width="33%" align="center"><img src="assets/28.png" width="100%"/><br/><sub><strong>28</strong></sub></td>
+<td width="33%" align="center"><img src="assets/29.png" width="100%"/><br/><sub><strong>29</strong></sub></td>
+<td width="33%"></td>
+</tr>
+</table>
+</div>
 
 ---
 
@@ -815,26 +754,15 @@ The following screenshots provide a visual representation of the deployed produc
 
 The platform's automated communication layer generates branded HTML emails throughout the ticket lifecycle.
 
-<details>
-<summary><strong>Submission Receipt</strong></summary>
-
-![Submission Receipt Email](assets/recieve.png)
-
-</details>
-
-<details>
-<summary><strong>Resolution Notification</strong></summary>
-
-![Resolution Notification Email](assets/resolve.png)
-
-</details>
-
-<details>
-<summary><strong>Decline Notification</strong></summary>
-
-![Decline Notification Email](assets/decline.png)
-
-</details>
+<div align="center">
+<table>
+<tr>
+<td width="33%" align="center"><img src="assets/recieve.png" width="100%"/><br/><sub><strong>Submission Receipt</strong></sub></td>
+<td width="33%" align="center"><img src="assets/resolve.png" width="100%"/><br/><sub><strong>Resolution Notification</strong></sub></td>
+<td width="33%" align="center"><img src="assets/decline.png" width="100%"/><br/><sub><strong>Decline Notification</strong></sub></td>
+</tr>
+</table>
+</div>
 
 ---
 

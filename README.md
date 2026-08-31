@@ -1,8 +1,58 @@
+<div align="center">
+
 # NSU IT Support Center
 
 ### Enterprise IT Service Management, Ticket Orchestration & Resolution Platform
 
+![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933?logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-API%20Layer-000000?logo=express&logoColor=white)
+![Supabase PostgreSQL](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?logo=supabase&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-UI%20Engineering-06B6D4?logo=tailwindcss&logoColor=white)
+![JWT](https://img.shields.io/badge/Auth-JWT-000000?logo=jsonwebtokens&logoColor=white)
+![Deployment](https://img.shields.io/badge/Status-Production%20Deployed-informational)
+
+</div>
+
 > A production-deployed, full-stack IT service management platform engineered for North South University to centralize student support, operational triage, administrative approvals, real-time ticket processing, and automated communication.
+
+---
+
+<details>
+<summary><strong>Table of Contents</strong></summary>
+
+- [Executive Overview](#executive-overview)
+- [Problem](#problem)
+- [Solution](#solution)
+- [System Architecture](#system-architecture)
+- [Role-Based Operational Model](#role-based-operational-model)
+- [Core Capabilities](#core-capabilities)
+- [Authentication & Authorization](#authentication--authorization)
+- [Real-Time Event Architecture](#real-time-event-architecture)
+- [Ticket Lifecycle](#ticket-lifecycle)
+- [Helpdesk Agent Portal](#helpdesk-agent-portal)
+- [Super Admin Command Center](#super-admin-command-center)
+- [Canvas Provisioning Workflow](#canvas-provisioning-workflow)
+- [Payment Operations](#payment-operations)
+- [Auditability & Governance](#auditability--governance)
+- [Automated Communication Pipeline](#automated-communication-pipeline)
+- [Operational UX](#operational-ux)
+- [Technology Stack](#technology-stack)
+- [Engineering Architecture](#engineering-architecture)
+- [Engineering Decisions](#engineering-decisions)
+- [Engineering Challenges](#engineering-challenges)
+- [Product Walkthrough](#product-walkthrough)
+- [Email Communication Showcase](#email-communication-showcase)
+- [Deployment](#deployment)
+- [Engineering Ownership](#engineering-ownership)
+- [Capabilities Demonstrated](#capabilities-demonstrated)
+- [Project Impact](#project-impact)
+- [Future Improvements](#future-improvements)
+- [Repository Notice](#repository-notice)
+- [Project Classification](#project-classification)
+- [Technology Summary](#technology-summary)
+- [Final Perspective](#final-perspective)
+
+</details>
 
 ---
 
@@ -32,39 +82,6 @@ The system was developed end-to-end, covering requirements analysis, system desi
 
 ---
 
-## Table of Contents
-
-- [Executive Overview](#executive-overview)
-- [Problem](#problem)
-- [Solution](#solution)
-- [System Architecture](#system-architecture)
-- [Role-Based Operational Model](#role-based-operational-model)
-- [Core Capabilities](#core-capabilities)
-- [Authentication & Authorization](#authentication--authorization)
-- [Real-Time Event Architecture](#real-time-event-architecture)
-- [Ticket Lifecycle](#ticket-lifecycle)
-- [Helpdesk Agent Portal](#helpdesk-agent-portal)
-- [Super Admin Command Center](#super-admin-command-center)
-- [Canvas Provisioning Workflow](#canvas-provisioning-workflow)
-- [Payment Operations](#payment-operations)
-- [Academic Action Engine](#academic-action-engine)
-- [Auditability & Governance](#auditability--governance)
-- [Automated Communication Pipeline](#automated-communication-pipeline)
-- [Operational UX](#operational-ux)
-- [Technology Stack](#technology-stack)
-- [Engineering Architecture](#engineering-architecture)
-- [Engineering Challenges](#engineering-challenges)
-- [Engineering Decisions](#engineering-decisions)
-- [Product Walkthrough](#product-walkthrough)
-- [Email Communication Showcase](#email-communication-showcase)
-- [Deployment](#deployment)
-- [Engineering Ownership](#engineering-ownership)
-- [Capabilities Demonstrated](#capabilities-demonstrated)
-- [Future Improvements](#future-improvements)
-- [Repository Notice](#repository-notice)
-
----
-
 ## Problem
 
 Student IT support often involves significantly more than recording a request and changing its status.
@@ -91,91 +108,61 @@ The core engineering challenge was therefore to create a system capable of repre
 
 ## Solution
 
-The NSU IT Support Center was engineered as a centralized service-management platform with a layered operational model.
+The NSU IT Support Center was engineered as a centralized service-management platform with a layered operational model, separating submission, operational processing, and controller authorization while maintaining a unified ticket lifecycle.
 
-```text
-                         ┌───────────────────────┐
-                         │       Students        │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │ Student Support Desk  │
-                         │   Submission Gateway  │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   Helpdesk Agent      │
-                         │   Level 1 Operations  │
-                         └───────────┬───────────┘
-                                     │
-                            Approval / Escalation
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │   Super Admin         │
-                         │   Command Center      │
-                         └───────────┬───────────┘
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │ Resolution / Export   │
-                         │ Communication / Audit │
-                         └───────────────────────┘
+```mermaid
+flowchart TD
+    A[Students] --> B[Student Support Desk<br/>Submission Gateway]
+    B --> C[Helpdesk Agent<br/>Level 1 Operations]
+    C -->|Approval / Escalation| D[Super Admin<br/>Command Center]
+    D --> E[Resolution / Export<br/>Communication / Audit]
 ```
-
-This architecture separates submission, operational processing, and controller authorization while maintaining a unified ticket lifecycle.
 
 ---
 
 ## System Architecture
 
-At a high level, the platform follows a multi-tier architecture:
+At a high level, the platform follows a multi-tier architecture.
 
-```text
-┌──────────────────────────────────────────────────────────┐
-│                        USERS                             │
-│                                                          │
-│  Students              Helpdesk Agents     Super Admins  │
-└──────────────┬─────────────────┬───────────────┬─────────┘
-               │                 │               │
-               ▼                 ▼               ▼
-┌──────────────────────────────────────────────────────────┐
-│                    PRESENTATION LAYER                    │
-│                                                          │
-│       Student Desk     Agent Portal     Admin Portal     │
-│                                                          │
-│          HTML5 + JavaScript + Tailwind CSS               │
-└──────────────────────────┬───────────────────────────────┘
-                           │
-                           ▼
-┌──────────────────────────────────────────────────────────┐
-│                     APPLICATION LAYER                    │
-│                                                          │
-│                    Node.js + Express.js                  │
-│                                                          │
-│ Authentication │ Authorization │ Workflows │ Business    │
-│ Logic          │ Validation    │ Events    │ Processing  │
-└──────────────────────────┬───────────────────────────────┘
-                           │
-                           ▼
-┌──────────────────────────────────────────────────────────┐
-│                        DATA LAYER                        │
-│                                                          │
-│                 Supabase PostgreSQL                      │
-│                                                          │
-│                    Supabase Realtime                     │
-└──────────────────────────┬───────────────────────────────┘
-                           │
-                           ▼
-┌──────────────────────────────────────────────────────────┐
-│                  EVENT & COMMUNICATION                   │
-│                                                          │
-│               Realtime Events → Nodemailer               │
-│                                                          │
-│       Submission │ Resolution │ Decline Notifications   │
-└──────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph Users
+        U1[Students]
+        U2[Helpdesk Agents]
+        U3[Super Admins]
+    end
+
+    subgraph Presentation["Presentation Layer — HTML5 + JavaScript + Tailwind CSS"]
+        P1[Student Desk]
+        P2[Agent Portal]
+        P3[Admin Portal]
+    end
+
+    subgraph Application["Application Layer — Node.js + Express.js"]
+        A1[Authentication]
+        A2[Authorization]
+        A3[Workflows]
+        A4[Business Logic]
+        A5[Validation]
+        A6[Events]
+        A7[Processing]
+    end
+
+    subgraph Data["Data Layer — Supabase PostgreSQL / Realtime"]
+        D1[(Supabase PostgreSQL)]
+        D2[Supabase Realtime]
+    end
+
+    subgraph Communication["Event & Communication Layer"]
+        C1[Realtime Events]
+        C2[Nodemailer]
+        C3[Submission / Resolution / Decline Notifications]
+    end
+
+    Users --> Presentation
+    Presentation --> Application
+    Application --> Data
+    Data --> Communication
 ```
 
 > The architecture shown above intentionally remains at the system level. Private implementation details, credentials, internal endpoints, and proprietary infrastructure are not exposed.
@@ -224,40 +211,29 @@ The objective is to provide staff with immediate operational awareness rather th
 
 ### Master-Detail Ticket Inspection
 
-Administrative users can inspect complete ticket records through a responsive master-detail workspace.
+Administrative users can inspect complete ticket records through a responsive master-detail workspace, providing visibility into:
 
-The inspection experience provides visibility into:
-
-- Student context
-- Ticket metadata
-- Issue category
-- Description
-- Status
-- Priority
-- Processing history
-- Audit information
-- Resolution information
+| Inspection Field | Description |
+|---|---|
+| Student context | Requesting student information |
+| Ticket metadata | Identifiers and classification data |
+| Issue category | Service domain of the request |
+| Description | Submitted request details |
+| Status | Current lifecycle state |
+| Priority | Urgency classification |
+| Processing history | Record of administrative actions |
+| Audit information | Accountability trail |
+| Resolution information | Final outcome data |
 
 ### Intelligent Ticket Search
 
-Administrative tables support real-time search across operational identifiers including:
+Administrative tables support real-time search across operational identifiers including `Ticket ID`, `Student Name`, `NSU ID`, and `Email`.
 
-- Ticket ID
-- Student Name
-- NSU ID
-- Email
-
-Pagination is available across:
-
-- 15 records
-- 30 records
-- 50 records
+Pagination is available across **15**, **30**, and **50** records.
 
 ### Priority & SLA Visibility
 
-Urgent tickets are visually distinguished from standard requests through dedicated priority indicators and animated urgent-state presentation.
-
-This allows staff to identify high-priority operational cases without opening every ticket.
+Urgent tickets are visually distinguished from standard requests through dedicated priority indicators and animated urgent-state presentation, allowing staff to identify high-priority operational cases without opening every ticket.
 
 ---
 
@@ -265,62 +241,47 @@ This allows staff to identify high-priority operational cases without opening ev
 
 Security-sensitive administrative operations are protected through dedicated authentication pipelines.
 
-The platform uses:
-
-- JWT-based authentication
-- Independent Agent and Super Admin authentication flows
-- bcrypt password hashing
-- Token blacklisting on logout
-- Session inactivity timeouts
-- Role-aware authorization
-- Controlled CORS policies
-- Sensitive-response cache restrictions
+| Security Component | Implementation |
+|---|---|
+| Authentication Mechanism | `JWT`-based authentication |
+| Authentication Flows | Independent Agent and Super Admin flows |
+| Credential Protection | `bcrypt` password hashing |
+| Session Termination | Token blacklisting on logout |
+| Session Management | Inactivity timeouts |
+| Authorization Model | Role-aware authorization |
+| Network Policy | Controlled CORS policies |
+| Response Handling | Sensitive-response cache restrictions |
 
 The authentication model is designed to maintain separation between standard Helpdesk operations and controller-level functionality.
 
-```text
-                    Authentication
-                          │
-              ┌───────────┴───────────┐
-              │                       │
-              ▼                       ▼
-        Helpdesk Agent          Super Admin
-              │                       │
-              ▼                       ▼
-      Agent Permissions       Controller Permissions
+```mermaid
+flowchart TD
+    Auth[Authentication] --> HA[Helpdesk Agent]
+    Auth --> SA[Super Admin]
+    HA --> AP[Agent Permissions]
+    SA --> CP[Controller Permissions]
 ```
 
 ---
 
 ## Real-Time Event Architecture
 
-A central architectural capability of the platform is its use of **Supabase Realtime** for database event propagation.
+A central architectural capability of the platform is its use of **Supabase Realtime** for database event propagation. The backend maintains a persistent WebSocket connection to the relevant Supabase Realtime channel.
 
-The backend maintains a persistent WebSocket connection to the relevant Supabase Realtime channel.
+```mermaid
+sequenceDiagram
+    participant Student
+    participant DB as Supabase PostgreSQL
+    participant RT as Supabase Realtime
+    participant Node as Node.js Event Listener
+    participant Mail as Nodemailer
 
-When a new ticket is inserted:
-
-```text
-Student Submission
-        │
-        ▼
-Supabase PostgreSQL
-        │
-        ▼
-Supabase Realtime
-        │
-        │ INSERT Event
-        ▼
-Node.js Event Listener
-        │
-        ▼
-Asynchronous Processing
-        │
-        ▼
-Nodemailer
-        │
-        ▼
-Student Notification
+    Student->>DB: Ticket Submission
+    DB->>RT: INSERT Event
+    RT->>Node: Event Propagation
+    Node->>Node: Asynchronous Processing
+    Node->>Mail: Dispatch Notification
+    Mail-->>Student: Notification Email
 ```
 
 This event-driven approach avoids making the client responsible for directly coordinating every downstream communication action.
@@ -331,37 +292,16 @@ This event-driven approach avoids making the client responsible for directly coo
 
 The platform models the ticket lifecycle as an operational workflow rather than a simple status field.
 
-```text
-┌──────────────────────┐
-│ Student Submission   │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Ticket Created       │
-│      PENDING         │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Helpdesk Diagnostics │
-│ & Processing         │
-└──────────┬───────────┘
-           │
-      ┌────┴────┐
-      │         │
-      ▼         ▼
- Approved     Declined
-      │         │
-      ▼         ▼
-Controller   Mandatory
-Processing   Explanation
-      │         │
-      ▼         ▼
-   Resolved  Student
-      │      Notification
-      ▼
-Student Notification
+```mermaid
+flowchart TD
+    A[Student Submission] --> B[Ticket Created — PENDING]
+    B --> C[Helpdesk Diagnostics & Processing]
+    C --> D{Decision}
+    D -->|Approved| E[Controller Processing]
+    D -->|Declined| F[Mandatory Explanation]
+    E --> G[Resolved]
+    F --> H[Student Notification]
+    G --> I[Student Notification]
 ```
 
 ---
@@ -386,23 +326,21 @@ Agents can:
 
 ### Action Engine
 
-Academic requests require specialized processing.
+Academic requests require specialized processing. The platform provides an **Action Engine** for constructing operational directives:
 
-The platform provides an **Action Engine** for constructing operational directives:
-
-- `ADD COURSE`
-- `DROP COURSE`
-- `SEC CHANGE`
-- `WAIVER / OVERRIDE`
-- `CUSTOM`
+| Directive | Purpose |
+|---|---|
+| `ADD COURSE` | Course addition action |
+| `DROP COURSE` | Course removal action |
+| `SEC CHANGE` | Section change action |
+| `WAIVER / OVERRIDE` | Waiver or override action |
+| `CUSTOM` | Custom-defined action |
 
 The resulting directive can be processed through the appropriate administrative workflow.
 
 ### Payment Semester Management
 
-Financial support cases can span multiple academic semesters.
-
-The dedicated workflow allows authorized agents to:
+Financial support cases can span multiple academic semesters. The dedicated workflow allows authorized agents to:
 
 - Add affected semesters
 - Remove affected semesters
@@ -412,22 +350,11 @@ The dedicated workflow allows authorized agents to:
 
 ### Document Verification
 
-Certain academic and support cases require physical supporting documents.
-
-The platform includes explicit verification controls allowing agents to confirm that required documentation has been reviewed before escalation.
+Certain academic and support cases require physical supporting documents. The platform includes explicit verification controls allowing agents to confirm that required documentation has been reviewed before escalation.
 
 ### Ticket Correction
 
-Authorized agents can correct submitted information when a student provides inaccurate information.
-
-Supported corrections include:
-
-- Name
-- NSU ID
-- Department
-- Email
-- Issue Type
-- Description
+Authorized agents can correct submitted information when a student provides inaccurate information. Supported corrections include: `Name`, `NSU ID`, `Department`, `Email`, `Issue Type`, `Description`.
 
 These modifications are represented within the ticket's audit history.
 
@@ -471,21 +398,21 @@ Administrators can select relevant records for batch processing rather than manu
 
 ### Structured CSV Generation
 
-Selected Canvas records are transformed into a structured CSV representation containing the required provisioning fields.
+Selected Canvas records are transformed into a structured CSV representation containing the required provisioning fields:
 
-The export workflow supports fields including:
-
-- `user_id`
-- `integration_id`
-- `login_id`
-- `password`
-- `authentication_provider_id`
-- `first_name`
-- `last_name`
-- `full_name`
-- `email`
-- `department`
-- `status`
+| Field |
+|---|
+| `user_id` |
+| `integration_id` |
+| `login_id` |
+| `password` |
+| `authentication_provider_id` |
+| `first_name` |
+| `last_name` |
+| `full_name` |
+| `email` |
+| `department` |
+| `status` |
 
 > The internal implementation and provisioning infrastructure remain intentionally private.
 
@@ -497,17 +424,13 @@ Tickets included in the extraction workflow are transitioned into an appropriate
 
 ## Payment Operations
 
-The Super Admin environment includes a dedicated **export capability** for pending payment investigations.
-
-Relevant records can be transformed into a structured CSV representation for accounting-oriented review.
+The Super Admin environment includes a dedicated **export capability** for pending payment investigations. Relevant records can be transformed into a structured CSV representation for accounting-oriented review.
 
 ---
 
 ## Auditability & Governance
 
-Operational accountability is incorporated into the ticket workflow.
-
-The platform tracks significant administrative actions including:
+Operational accountability is incorporated into the ticket workflow. The platform tracks significant administrative actions including:
 
 - Ticket modifications
 - Approval decisions
@@ -518,15 +441,11 @@ The platform tracks significant administrative actions including:
 
 A decline action requires an explicit written justification.
 
-```text
-Decline Request
-      │
-      ▼
-Mandatory Explanation
-      │
-      ├──────────────► Audit History
-      │
-      └──────────────► Student Email
+```mermaid
+flowchart TD
+    A[Decline Request] --> B[Mandatory Explanation]
+    B --> C[Audit History]
+    B --> D[Student Email]
 ```
 
 This ensures that an administrative decision is accompanied by both an internal record and an appropriate student-facing explanation.
@@ -535,64 +454,40 @@ This ensures that an administrative decision is accompanied by both an internal 
 
 ## Automated Communication Pipeline
 
-The platform incorporates an **event-driven email communication layer** using Nodemailer and Supabase Realtime.
+The platform incorporates an **event-driven email communication layer** using Nodemailer and Supabase Realtime, supporting three major ticket lifecycle events.
 
-The communication pipeline supports three major ticket lifecycle events.
-
-```text
-                 Ticket Lifecycle
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-        ▼              ▼              ▼
-    Submission      Resolution      Decline
-        │              │              │
-        ▼              ▼              ▼
-     Receipt         Success        Warning
-      Email           Email          Email
+```mermaid
+flowchart TD
+    L[Ticket Lifecycle] --> S[Submission]
+    L --> R[Resolution]
+    L --> D[Decline]
+    S --> SE[Receipt Email]
+    R --> RE[Success Email]
+    D --> DE[Warning Email]
 ```
 
 ### Submission Receipt
 
-A branded HTML email is automatically generated after ticket submission.
-
-It communicates:
-
-- Ticket ID
-- Requested category
-- Current status
-- Submission confirmation
+A branded HTML email is automatically generated after ticket submission. It communicates the Ticket ID, requested category, current status, and submission confirmation.
 
 ### Resolution Confirmation
 
-When a request is resolved, the system generates a dedicated resolution email.
-
-Resolution notes supplied during processing can be dynamically incorporated into the notification.
+When a request is resolved, the system generates a dedicated resolution email. Resolution notes supplied during processing can be dynamically incorporated into the notification.
 
 ### Decline Notification
 
-Declined requests require a mandatory explanation.
-
-That explanation is incorporated into the student-facing decline notification.
+Declined requests require a mandatory explanation, which is incorporated into the student-facing decline notification.
 
 ### Asynchronous Communication Architecture
 
 The communication pipeline is designed so email delivery does not unnecessarily block primary administrative workflows.
 
-```text
-Ticket Event
-     │
-     ▼
-Event Detection
-     │
-     ▼
-Email Construction
-     │
-     ▼
-Asynchronous Dispatch
-     │
-     ▼
-Student Mailbox
+```mermaid
+flowchart TD
+    A[Ticket Event] --> B[Event Detection]
+    B --> C[Email Construction]
+    C --> D[Asynchronous Dispatch]
+    D --> E[Student Mailbox]
 ```
 
 The outbound messages use responsive HTML templates and incorporate status-specific visual treatment.
@@ -605,23 +500,16 @@ The administrative interfaces were designed for high-frequency operational use.
 
 ### Responsive Data Grids
 
-The system uses dense operational tables with:
-
-- Sticky headers
-- Responsive layouts
-- Pagination
-- Search
-- Status indicators
-- Priority indicators
+The system uses dense operational tables with sticky headers, responsive layouts, pagination, search, status indicators, and priority indicators.
 
 ### Command Palette
 
 Administrative navigation supports a command palette interaction model.
 
-```
-Ctrl + K   (Windows / Linux)
-Cmd  + K   (macOS)
-```
+| Platform | Shortcut |
+|---|---|
+| Windows / Linux | `Ctrl + K` |
+| macOS | `Cmd + K` |
 
 The palette allows users to rapidly access operational destinations and supported actions without navigating through multiple interface layers.
 
@@ -649,23 +537,11 @@ The administrative portals include a unified toast notification layer.
 | **Warning** | Important operational conditions |
 | **Error** | Failed or invalid operations |
 
-Notifications provide immediate feedback for operations such as:
-
-- Synchronization
-- Ticket resolution
-- Draft saving
-- Clipboard actions
-- Administrative processing
+Notifications provide immediate feedback for operations such as synchronization, ticket resolution, draft saving, clipboard actions, and administrative processing.
 
 ### Printable Inspection Reports
 
-The ticket inspection workspace includes dedicated print styling.
-
-The digital ticket inspection view can be transformed into a structured printable document containing designated signature areas for:
-
-- Student
-- Helpdesk Agent
-- Controller
+The ticket inspection workspace includes dedicated print styling. The digital ticket inspection view can be transformed into a structured printable document containing designated signature areas for `Student`, `Helpdesk Agent`, and `Controller`.
 
 This provides continuity between digital ticket processing and operational situations requiring physical documentation.
 
@@ -675,16 +551,16 @@ This provides continuity between digital ticket processing and operational situa
 
 | Layer | Technology | Engineering Role |
 |-------|------------|-----------------|
-| **Presentation** | HTML5 | Semantic application structure |
-| **Client Logic** | JavaScript ES6+ | Interactive application behavior |
-| **UI Engineering** | Tailwind CSS | Responsive design system and utility-based styling |
-| **Backend Runtime** | Node.js | Server-side application execution |
-| **API Layer** | Express.js | HTTP API and application routing |
-| **Data Platform** | Supabase PostgreSQL | Persistent relational data storage |
-| **Event Layer** | Supabase Realtime | Database event propagation through WebSockets |
-| **Authentication** | JWT | Stateless authentication mechanism |
-| **Credential Security** | bcryptjs | Password hashing |
-| **Communication** | Nodemailer | Transactional email delivery |
+| **Presentation** | `HTML5` | Semantic application structure |
+| **Client Logic** | `JavaScript ES6+` | Interactive application behavior |
+| **UI Engineering** | `Tailwind CSS` | Responsive design system and utility-based styling |
+| **Backend Runtime** | `Node.js` | Server-side application execution |
+| **API Layer** | `Express.js` | HTTP API and application routing |
+| **Data Platform** | `Supabase PostgreSQL` | Persistent relational data storage |
+| **Event Layer** | `Supabase Realtime` | Database event propagation through WebSockets |
+| **Authentication** | `JWT` | Stateless authentication mechanism |
+| **Credential Security** | `bcryptjs` | Password hashing |
+| **Communication** | `Nodemailer` | Transactional email delivery |
 
 ---
 
@@ -692,40 +568,12 @@ This provides continuity between digital ticket processing and operational situa
 
 The platform can be conceptually represented through five cooperating layers.
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                    PRESENTATION LAYER                       │
-│                                                             │
-│ HTML5 │ JavaScript ES6+ │ Tailwind CSS                      │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    APPLICATION LAYER                        │
-│                                                             │
-│ Node.js │ Express.js │ Business Workflows │ Validation      │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                       DATA LAYER                            │
-│                                                             │
-│                  Supabase PostgreSQL                        │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    REAL-TIME EVENT LAYER                    │
-│                                                             │
-│                Supabase Realtime / WebSockets               │
-└──────────────────────────────┬──────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                  COMMUNICATION LAYER                        │
-│                                                             │
-│                         Nodemailer                          │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    P["Presentation Layer<br/>HTML5 · JavaScript ES6+ · Tailwind CSS"] --> A["Application Layer<br/>Node.js · Express.js · Business Workflows · Validation"]
+    A --> D["Data Layer<br/>Supabase PostgreSQL"]
+    D --> R["Real-Time Event Layer<br/>Supabase Realtime / WebSockets"]
+    R --> C["Communication Layer<br/>Nodemailer"]
 ```
 
 ---
@@ -734,25 +582,15 @@ The platform can be conceptually represented through five cooperating layers.
 
 ### Why a Role-Separated Architecture?
 
-The platform operates across fundamentally different responsibility levels.
-
-- **Students** submit requests.
-- **Agents** diagnose and process them.
-- **Super Administrators** authorize and finalize operational decisions.
-
-Separating these responsibilities reduces unnecessary privilege exposure and provides a clearer operational model.
+The platform operates across fundamentally different responsibility levels — Students submit requests, Agents diagnose and process them, and Super Administrators authorize and finalize operational decisions. Separating these responsibilities reduces unnecessary privilege exposure and provides a clearer operational model.
 
 ### Why Event-Driven Notifications?
 
-Student communication is a downstream consequence of ticket lifecycle events.
-
-Connecting notifications to database events allows the communication layer to respond to state changes without coupling every frontend interaction directly to email delivery.
+Student communication is a downstream consequence of ticket lifecycle events. Connecting notifications to database events allows the communication layer to respond to state changes without coupling every frontend interaction directly to email delivery.
 
 ### Why Supabase Realtime?
 
-Support operations benefit from immediate awareness of database changes.
-
-Realtime event propagation allows the backend to react to ticket insertion events without relying exclusively on repeated client-side polling.
+Support operations benefit from immediate awareness of database changes. Realtime event propagation allows the backend to react to ticket insertion events without relying exclusively on repeated client-side polling.
 
 ### Why JWT Authentication?
 
@@ -760,9 +598,7 @@ JWT provides a structured mechanism for maintaining authenticated administrative
 
 ### Why bcrypt?
 
-Administrative credentials require one-way password protection rather than storing plaintext passwords.
-
-bcrypt-based hashing provides the credential protection layer used by the administrative authentication system.
+Administrative credentials require one-way password protection rather than storing plaintext passwords. bcrypt-based hashing provides the credential protection layer used by the administrative authentication system.
 
 ### Why Express.js?
 
@@ -772,101 +608,65 @@ Express provides the API and routing layer connecting the presentation layer wit
 
 ## Engineering Challenges
 
-### 01 — Modeling Multiple Operational Roles
+<details>
+<summary><strong>01 — Modeling Multiple Operational Roles</strong></summary>
 
-**Challenge**
+**Challenge:** Different users require fundamentally different capabilities and levels of authorization.
 
-Different users require fundamentally different capabilities and levels of authorization.
+**Engineering Response:** The platform was structured into dedicated environments with separate authentication and authorization workflows.
 
-**Engineering Response**
+**Engineering Outcome:** The resulting architecture establishes a clear separation between submission, operational processing, and controller authorization.
 
-The platform was structured into dedicated environments with separate authentication and authorization workflows.
+</details>
 
-**Engineering Outcome**
+<details>
+<summary><strong>02 — Supporting Heterogeneous Workflows</strong></summary>
 
-The resulting architecture establishes a clear separation between submission, operational processing, and controller authorization.
+**Challenge:** Canvas, payment, academic, email, and 2FA requests require different processing procedures.
 
----
+**Engineering Response:** Service-specific workflows were introduced instead of forcing every ticket through a single generic processing path, including the Academic Action Engine, Payment Semester Management, Canvas Provisioning SPA, Document Verification, and specialized ticket forms.
 
-### 02 — Supporting Heterogeneous Workflows
+</details>
 
-**Challenge**
+<details>
+<summary><strong>03 — Real-Time Event Processing</strong></summary>
 
-Canvas, payment, academic, email, and 2FA requests require different processing procedures.
+**Challenge:** The system needs to react to new tickets without requiring constant client-side polling.
 
-**Engineering Response**
+**Engineering Response:** Supabase Realtime was integrated with the backend through persistent WebSocket event handling.
 
-Service-specific workflows were introduced instead of forcing every ticket through a single generic processing path.
+**Engineering Outcome:** Database events can initiate downstream processing such as automated student communication.
 
-Examples include:
+</details>
 
-- Academic Action Engine
-- Payment Semester Management
-- Canvas Provisioning SPA
-- Document Verification
-- Specialized ticket forms
+<details>
+<summary><strong>04 — Administrative Accountability</strong></summary>
 
----
+**Challenge:** Administrative decisions such as declining requests require contextual justification.
 
-### 03 — Real-Time Event Processing
+**Engineering Response:** The system requires written decline explanations and associates them with the ticket's audit history and student communication.
 
-**Challenge**
+</details>
 
-The system needs to react to new tickets without requiring constant client-side polling.
+<details>
+<summary><strong>05 — Operational Efficiency</strong></summary>
 
-**Engineering Response**
+**Challenge:** Support staff frequently perform repetitive actions across large operational queues.
 
-Supabase Realtime was integrated with the backend through persistent WebSocket event handling.
+**Engineering Response:** The platform incorporates command palette navigation, search, pagination, batch selection, CSV export, clipboard shortcuts, direct calling, printable reports, and automated notifications.
 
-**Engineering Outcome**
+**Engineering Outcome:** The result is an interface optimized around operational throughput rather than purely visual presentation.
 
-Database events can initiate downstream processing such as automated student communication.
-
----
-
-### 04 — Administrative Accountability
-
-**Challenge**
-
-Administrative decisions such as declining requests require contextual justification.
-
-**Engineering Response**
-
-The system requires written decline explanations and associates them with the ticket's audit history and student communication.
-
----
-
-### 05 — Operational Efficiency
-
-**Challenge**
-
-Support staff frequently perform repetitive actions across large operational queues.
-
-**Engineering Response**
-
-The platform incorporates:
-
-- Command palette navigation
-- Search
-- Pagination
-- Batch selection
-- CSV export
-- Clipboard shortcuts
-- Direct calling
-- Printable reports
-- Automated notifications
-
-The result is an interface optimized around operational throughput rather than purely visual presentation.
+</details>
 
 ---
 
 ## Product Walkthrough
 
-The following screenshots provide a visual representation of the deployed product.
+The following screenshots provide a visual representation of the deployed product, organized by product experience rather than presented as an unstructured image collection.
 
-Screenshots are intentionally organized by product experience rather than presented as an unstructured image collection.
-
-### Student Support Experience
+<details>
+<summary><strong>Student Support Experience</strong></summary>
 
 **01 — Support Interface**
 
@@ -884,17 +684,18 @@ Screenshots are intentionally organized by product experience rather than presen
 
 ![Request Processing Interface](assets/token.png)
 
-**05 — Warning On Request Processing Interface On Speacial Cases**
+**05 — Warning On Request Processing Interface On Special Cases**
 
 ![Request Processing Interface](assets/5.png)
 
-**06 — Warning On Request Processing Interface On Speacial Cases Academic**
+**06 — Warning On Request Processing Interface On Special Cases Academic**
 
 ![Request Processing Interface](assets/8.png)
 
----
+</details>
 
-### Administrative Operations
+<details>
+<summary><strong>Administrative Operations</strong></summary>
 
 **05 — Administrative Operations**
 
@@ -940,9 +741,10 @@ Screenshots are intentionally organized by product experience rather than presen
 
 ![Administrative Operations 15](assets/20.png)
 
----
+</details>
 
-### Ticket Processing & Workflow
+<details>
+<summary><strong>Ticket Processing & Workflow</strong></summary>
 
 **16**
 
@@ -968,9 +770,10 @@ Screenshots are intentionally organized by product experience rather than presen
 
 ![Ticket Processing 21](assets/21.png)
 
----
+</details>
 
-### Administration & Specialized Operations
+<details>
+<summary><strong>Administration & Specialized Operations</strong></summary>
 
 **22**
 
@@ -1004,23 +807,34 @@ Screenshots are intentionally organized by product experience rather than presen
 
 ![Specialized Operations 29](assets/29.png)
 
+</details>
+
 ---
 
 ## Email Communication Showcase
 
 The platform's automated communication layer generates branded HTML emails throughout the ticket lifecycle.
 
-### Submission Receipt
+<details>
+<summary><strong>Submission Receipt</strong></summary>
 
 ![Submission Receipt Email](assets/recieve.png)
 
-### Resolution Notification
+</details>
+
+<details>
+<summary><strong>Resolution Notification</strong></summary>
 
 ![Resolution Notification Email](assets/resolve.png)
 
-### Decline Notification
+</details>
+
+<details>
+<summary><strong>Decline Notification</strong></summary>
 
 ![Decline Notification Email](assets/decline.png)
+
+</details>
 
 ---
 
@@ -1028,41 +842,19 @@ The platform's automated communication layer generates branded HTML emails throu
 
 The application was taken through the complete development lifecycle:
 
-```text
-Requirements
-     │
-     ▼
-System Design
-     │
-     ▼
-UI/UX Engineering
-     │
-     ▼
-Frontend Development
-     │
-     ▼
-Backend Development
-     │
-     ▼
-Database Integration
-     │
-     ▼
-Authentication & Authorization
-     │
-     ▼
-Realtime Event Integration
-     │
-     ▼
-Automated Communication
-     │
-     ▼
-Validation & Refinement
-     │
-     ▼
-Production Deployment
-     │
-     ▼
-Operational Software Product
+```mermaid
+flowchart TD
+    A[Requirements] --> B[System Design]
+    B --> C[UI/UX Engineering]
+    C --> D[Frontend Development]
+    D --> E[Backend Development]
+    E --> F[Database Integration]
+    F --> G[Authentication & Authorization]
+    G --> H[Realtime Event Integration]
+    H --> I[Automated Communication]
+    I --> J[Validation & Refinement]
+    J --> K[Production Deployment]
+    K --> L[Operational Software Product]
 ```
 
 The deployed application is intentionally documented at the architectural and product level rather than exposing private deployment configuration or internal infrastructure.
@@ -1071,9 +863,7 @@ The deployed application is intentionally documented at the architectural and pr
 
 ## Engineering Ownership
 
-This project represents **end-to-end software engineering ownership**.
-
-The engineering scope spans multiple layers of the product lifecycle, including:
+This project represents **end-to-end software engineering ownership**, spanning multiple layers of the product lifecycle, including:
 
 - Requirement interpretation
 - Workflow modeling
@@ -1153,26 +943,17 @@ The project demonstrates the ability to move beyond isolated feature implementat
 
 ## Project Impact
 
-The platform brings multiple IT support workflows into a unified operational system.
+The platform brings multiple IT support workflows into a unified operational system, establishing a structured lifecycle rather than treating support requests as isolated records.
 
-Instead of treating support requests as isolated records, the system establishes a structured lifecycle:
-
-```text
-SUBMIT
-  ↓
-IDENTIFY
-  ↓
-TRIAGE
-  ↓
-PROCESS
-  ↓
-APPROVE / DECLINE
-  ↓
-RESOLVE
-  ↓
-NOTIFY
-  ↓
-AUDIT
+```mermaid
+flowchart TD
+    A[Submit] --> B[Identify]
+    B --> C[Triage]
+    C --> D[Process]
+    D --> E[Approve / Decline]
+    E --> F[Resolve]
+    F --> G[Notify]
+    G --> H[Audit]
 ```
 
 This architecture creates a consistent operational path from the student's initial request through administrative resolution.
@@ -1234,25 +1015,13 @@ Instead, this repository documents the engineering work through:
 
 ## Technology Summary
 
-**Frontend**
-- HTML5
-- JavaScript ES6+
-- Tailwind CSS
-
-**Backend**
-- Node.js
-- Express.js
-
-**Data**
-- Supabase PostgreSQL
-- Supabase Realtime
-
-**Security**
-- JWT
-- bcryptjs
-
-**Communication**
-- Nodemailer
+| Category | Technologies |
+|---|---|
+| **Frontend** | `HTML5`, `JavaScript ES6+`, `Tailwind CSS` |
+| **Backend** | `Node.js`, `Express.js` |
+| **Data** | `Supabase PostgreSQL`, `Supabase Realtime` |
+| **Security** | `JWT`, `bcryptjs` |
+| **Communication** | `Nodemailer` |
 
 ---
 
@@ -1276,35 +1045,23 @@ The system combines:
 - Automated student communication
 - Production deployment
 
-The project demonstrates an ability to reason across the full software lifecycle:
-
-```text
-         REAL-WORLD REQUIREMENT
-                  │
-                  ▼
-         SYSTEM ARCHITECTURE
-                  │
-                  ▼
-           PRODUCT DESIGN
-                  │
-                  ▼
-          SOFTWARE ENGINEERING
-                  │
-                  ▼
-            INTEGRATION
-                  │
-                  ▼
-      VALIDATION & REFINEMENT
-                  │
-                  ▼
-             DEPLOYMENT
-                  │
-                  ▼
-          OPERATIONAL SYSTEM
+```mermaid
+flowchart TD
+    A[Real-World Requirement] --> B[System Architecture]
+    B --> C[Product Design]
+    C --> D[Software Engineering]
+    D --> E[Integration]
+    E --> F[Validation & Refinement]
+    F --> G[Deployment]
+    G --> H[Operational System]
 ```
 
 > Designed from requirements. Engineered end-to-end. Integrated across multiple operational workflows. Deployed as a real software product.
 
 ---
 
+<div align="center">
+
 *NSU IT Support Center — Enterprise IT Service Management Platform*
+
+</div>

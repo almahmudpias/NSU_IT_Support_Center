@@ -1012,11 +1012,11 @@ The platform's automated communication layer generates branded HTML emails throu
 
 ### Submission Receipt
 
-![Submission Receipt Email](assets/receive.png)
+![Submission Receipt Email](assets/s.png)
 
 ### Resolution Notification
 
-![Resolution Notification Email](assets/resolve.png)
+![Resolution Notification Email](assets/r.png)
 
 ### Decline Notification
 
